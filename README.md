@@ -1,2 +1,0 @@
-# primeHunter
-Created with CodeSandbox
