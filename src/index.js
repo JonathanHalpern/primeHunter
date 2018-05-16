@@ -1,10 +1,10 @@
 import React from "react";
 import { render } from "react-dom";
-import PrimeFinder from "./Components/PrimeFinder";
+import PrimeFinder from "./components/PrimeFinder";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunkMiddleware from "redux-thunk";
-import rootReducer from "./Ducks/reducers";
+import rootReducer from "./ducks";
 
 const store = createStore(
   rootReducer,

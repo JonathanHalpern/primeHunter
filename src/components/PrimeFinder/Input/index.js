@@ -1,17 +1,21 @@
 import { connect } from 'react-redux';
-import { updateIsSearching, search } from '../../../Ducks/primeHunter/primeHunter';
+import { updateN, updateIsSearching, search } from '../../../ducks';
 import View from './view';
 
 const mapStateToProps = (state, ownProps) => ({
-
+  isSearching: state.isSearching,
+  n: state.n
 });
 
 const mapDispatchToProps = dispatch => ({
+  updateN: (event) => {
+    dispatch(updateN(event.target.value))
+  },
   updateIsSearching: (isSearching) => {
     dispatch(updateIsSearching(isSearching))
   },
-  search: (n) => {
-    dispatch(search(n))
+  searchForNthPrime: () => {
+    dispatch(search())
   }
 });
 
