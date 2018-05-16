@@ -4,14 +4,13 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Utils from '../../../services/Utils';
 
-const Results = ({ n, nthPrime, timeDifference, primeArray }) => (
+const Results = ({ n, nthPrime, timeDifference, primeArray, searchTime }) => (
   <div>
-    <p>
-      prime {n} is {nthPrime}{" "}
-    </p>
-    <p>the search took: {Utils.findSearchTime(timeDifference)} </p>
+    <Typography>
+      prime {n} is <b>{nthPrime}</b>
+    </Typography>
+    <Typography>the search took: {searchTime} </Typography>
     <ExpansionPanel>
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
         <Typography>Full list of primes</Typography>
