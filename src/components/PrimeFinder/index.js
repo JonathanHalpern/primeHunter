@@ -1,14 +1,9 @@
-import { connect } from 'react-redux';
-import View from './view';
+import { connect } from "react-redux";
+import View from "./view";
 
 const mapStateToProps = (state, ownProps) => ({
   isSearching: state.isSearching,
-  showResults: state.showResults,
+  showResults: state.showResults
 });
 
-const mapDispatchToProps = dispatch => ({
-
-});
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(View);
+export default connect(mapStateToProps)(View);

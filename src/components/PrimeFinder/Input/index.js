@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import { updateN, updateIsSearching, search } from '../../../ducks';
-import View from './view';
+import { connect } from "react-redux";
+import { updateN, updateIsSearching, search } from "../../../ducks";
+import View from "./view";
 
 const mapStateToProps = (state, ownProps) => ({
   isSearching: state.isSearching,
@@ -8,16 +8,15 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateN: (event) => {
-    dispatch(updateN(event.target.value))
+  updateN: event => {
+    dispatch(updateN(event.target.value));
   },
-  updateIsSearching: (isSearching) => {
-    dispatch(updateIsSearching(isSearching))
+  updateIsSearching: isSearching => {
+    dispatch(updateIsSearching());
   },
   searchForNthPrime: () => {
-    dispatch(search())
+    dispatch(search());
   }
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(View);

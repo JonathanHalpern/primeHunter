@@ -2,28 +2,41 @@ import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import { withStyles } from "@material-ui/core/styles";
 
-const PrimeFinder = props => (
-  <div>
-    <p>Prime Hunter</p>
+const styles = theme => ({
+  container: {
+    padding: 25,
+    display: "flex",
+  },
+  button: {
+    marginLeft: 25
+  }
+});
+
+const Input = ({ n, updateN, searchForNthPrime, isSearching, classes }) => (
+  <form className={classes.container}>
     <TextField
       id="primeIndex"
       label="nth prime number"
-      value={props.n}
-      onChange={props.updateN}
+      value={n}
+      onChange={updateN}
       InputProps={{
         startAdornment: <InputAdornment position="start">n =</InputAdornment>
       }}
+      className={classes.textField}
+      type="number"
     />
     <Button
       variant="outlined"
       color="primary"
-      onClick={props.searchForNthPrime}
-      disabled={props.isSearching}
+      onClick={searchForNthPrime}
+      disabled={isSearching}
+      className={classes.button}
     >
       Find
     </Button>
-  </div>
+  </form>
 );
 
-export default PrimeFinder;
+export default withStyles(styles)(Input);

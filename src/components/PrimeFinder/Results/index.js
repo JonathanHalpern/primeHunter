@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import Utils from "../../../services/Utils";
 import View from "./view";
 import { primeListSelector, searchTimeSelector } from "../../../ducks";
 
@@ -10,6 +9,4 @@ const mapStateToProps = (state, ownProps) => ({
   searchTime: searchTimeSelector(state)
 });
 
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(View);
+export default connect(mapStateToProps)(View);
