@@ -1,5 +1,7 @@
-# primeHunter
-Created with CodeSandbox
+# Prime Hunter
+
+demo:
+https://csb-885y65oorj-dzhvgpbfdc.now.sh/
 
 Prime Hunter is a tool for finding the nth prime
 
