@@ -19,7 +19,7 @@ const primeHunter = (state = initalState, action = {}) => {
     case UPDATE_N:
       return { ...state, n: action.n, showResults: false };
     case UPDATE_IS_SEARCHING:
-      return { ...state, isSearching: action.isSearching };
+      return { ...state, isSearching: true, showResults: false };
     case UPDATE_RESULTS:
       return {
         ...state,
@@ -39,9 +39,8 @@ export const updateN = n => ({
   n
 });
 
-export const updateIsSearching = isSearching => ({
-  type: UPDATE_IS_SEARCHING,
-  isSearching
+export const updateIsSearching = () => ({
+  type: UPDATE_IS_SEARCHING
 });
 
 export const updateResults = ({ nthPrime, primeArray, timeDifference }) => ({
@@ -52,15 +51,14 @@ export const updateResults = ({ nthPrime, primeArray, timeDifference }) => ({
 });
 
 export const search = () => (dispatch, getState) => {
-  dispatch(updateIsSearching(true));
+  dispatch(updateIsSearching());
   const state = getState();
   const n = state.n;
   setTimeout(() => {
     findNthPrime(n).then(results => {
-      dispatch(updateIsSearching(false));
       dispatch(updateResults(results));
     });
-  }, 0);
+  });
 };
 
 export const primeListSelector = state => state.primeArray.join(", ");

@@ -10,11 +10,7 @@ const styles = theme => ({
     flexDirection: "column",
     alignItems: "center",
     maxWidth: 400,
-    margin: 'auto'
-  },
-  textField: {},
-  button: {
-    marginLeft: 15
+    margin: "auto"
   }
 });
 
