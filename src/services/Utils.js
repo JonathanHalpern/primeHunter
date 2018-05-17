@@ -1,4 +1,4 @@
-const findSearchTime = timeDifferenceInMilliSeconds => {
+export const findSearchTime = timeDifferenceInMilliSeconds => {
   const timeDifferenceInSeconds = timeDifferenceInMilliSeconds / 1000;
   if (timeDifferenceInSeconds === 0) {
     return "almost no time at all";
@@ -8,8 +8,4 @@ const findSearchTime = timeDifferenceInMilliSeconds => {
   } else {
     return timeDifferenceInSeconds + 's';
   }
-}
-
-export default {
-  findSearchTime,
 }

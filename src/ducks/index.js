@@ -1,6 +1,7 @@
-import PrimeFinderService from "../services/PrimeMethods";
+import { findNthPrime } from "../services/PrimeMethods";
+import { findSearchTime } from "../services/Utils";
 
-const UPDATE_N = "prime-hunter/UPDATE_N"
+const UPDATE_N = "prime-hunter/UPDATE_N";
 const UPDATE_IS_SEARCHING = "prime-hunter/UPDATE_IS_SEARCHING";
 const UPDATE_RESULTS = "prime-hunter/UPDATE_RESULTS";
 
@@ -11,7 +12,7 @@ const initalState = {
   timeDifference: null,
   isSearching: false,
   showResults: false
-}
+};
 
 const primeHunter = (state = initalState, action = {}) => {
   switch (action.type) {
@@ -26,7 +27,7 @@ const primeHunter = (state = initalState, action = {}) => {
         showResults: true,
         nthPrime: action.nthPrime,
         primeArray: action.primeArray,
-        timeDifference: action.timeDifference,
+        timeDifference: action.timeDifference
       };
     default:
       return state;
@@ -47,17 +48,22 @@ export const updateResults = ({ nthPrime, primeArray, timeDifference }) => ({
   type: UPDATE_RESULTS,
   nthPrime,
   primeArray,
-  timeDifference,
+  timeDifference
 });
 
 export const search = () => (dispatch, getState) => {
   dispatch(updateIsSearching(true));
   const state = getState();
   const n = state.n;
-  PrimeFinderService.findNthPrime(n).then(results => {
-    dispatch(updateIsSearching(false));
-    dispatch(updateResults(results));
-  });
+  setTimeout(() => {
+    findNthPrime(n).then(results => {
+      dispatch(updateIsSearching(false));
+      dispatch(updateResults(results));
+    });
+  }, 0);
 };
+
+export const primeListSelector = state => state.primeArray.join(", ");
+export const searchTimeSelector = state => findSearchTime(state.timeDifference)
 
 export default primeHunter;

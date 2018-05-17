@@ -1,4 +1,4 @@
-const findNthPrime = numberOfPrimesToFind =>
+export const findNthPrime = numberOfPrimesToFind =>
   new Promise((resolve, reject) => {
     const primeArray = [];
     let numberToInvestigate = 2;
@@ -20,7 +20,3 @@ const findNthPrime = numberOfPrimesToFind =>
       timeDifference
     });
   });
-
-export default {
-  findNthPrime
-};

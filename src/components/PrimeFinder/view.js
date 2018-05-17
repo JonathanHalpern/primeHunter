@@ -6,7 +6,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 const PrimeFinder = props => (
   <div>
     <Input />
-    {props.isLoading && <CircularProgress />}
+    {props.isSearching && <CircularProgress />}
     {props.showResults && <Results />}
   </div>
 );

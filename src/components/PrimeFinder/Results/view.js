@@ -5,7 +5,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const Results = ({ n, nthPrime, timeDifference, primeArray, searchTime }) => (
+const Results = ({ n, nthPrime, timeDifference, primeList, searchTime }) => (
   <div>
     <Typography>
       prime {n} is <b>{nthPrime}</b>
@@ -17,7 +17,7 @@ const Results = ({ n, nthPrime, timeDifference, primeArray, searchTime }) => (
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
-          {primeArray.join(', ')}
+          {primeList}
           </Typography>
       </ExpansionPanelDetails>
     </ExpansionPanel>
